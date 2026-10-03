@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sporting Club Fortunat - Transformer les Vies par le Football</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #1a1a2e;
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4ade80;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4ade80;
+        }
+
+        .cta-button {
+            background: #4ade80;
+            color: #1a1a2e;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #22c55e;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-buttons .cta-button {
+            background: #4ade80;
+            color: #1a1a2e;
+        }
+
+        .hero-buttons .secondary-button {
+            background: transparent;
+            color: white;
+            border: 2px solid #4ade80;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        .mission p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #666;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f8fafc;
+            padding: 4rem 2rem;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #1a1a2e;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: #4ade80;
+            margin-bottom: 1rem;
+        }
+
+        /* Programmes Section */
+        .programmes {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .programmes h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #1a1a2e;
+        }
+
+        .programme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .programme-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .programme-card:hover {
+            border-color: #4ade80;
+        }
+
+        .programme-card h3 {
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        .programme-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .programme-card a {
+            color: #4ade80;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #1a1a2e;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: #4ade80;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+        }
+
+        /* Testimonial Section */
+        .testimonial {
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: #f8fafc;
+        }
+
+        .testimonial blockquote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial cite {
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+
+        /* Financial Support Section */
+        .financial-support {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .financial-support h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        .financial-support p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            color: #4ade80;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #4ade80;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Sporting Club Fortunat</div>
+            <ul class="nav-links">
+                <li><a href="#programmes">Programmes</a></li>
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#support">Nous Soutenir</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#join" class="cta-button">Rejoignez-nous</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Transformer les Vies par le Football</h1>
+        <p>Des programmes de football amusants et accessibles pour tous les âges et tous les niveaux. Trouvez votre séance locale et montez sur le terrain dès aujourd'hui !</p>
+        <div class="hero-buttons">
+            <a href="#programmes" class="cta-button">Trouver une Séance</a>
+            <a href="#about" class="secondary-button">Notre Mission</a>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission" id="about">
+        <h2>Notre Mission</h2>
+        <p>Nous avons pour mission de transformer des vies grâce à la magie du football. Chaque jeune devrait avoir accès au football pour développer la confiance, la communauté et les compétences de vie qui peuvent l'aider à réussir sur et hors du terrain.</p>
+        <p>Nous supprimons les barrières financières, sociales et culturelles qui empêchent les gens de jouer au beau jeu, offrant aux joueurs de meilleures chances dans la vie.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <h2>La Magie du Football</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🏟️ Un Lieu Sûr pour Jouer</h3>
+                    <p>Offrant des opportunités locales, accessibles et abordables pour que les jeunes restent actifs, améliorant leur santé mentale et physique.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>👥 Une Communauté à laquelle Appartenir</h3>
+                    <p>Donnant aux enfants l'opportunité de se faire des amis avec des joueurs de différents horizons sous le regard d'entraîneurs qui sont à la fois des adultes de confiance et des modèles.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🚀 Les Outils pour Progresser</h3>
+                    <p>Inspirant la confiance et enseignant des compétences de vie inestimables comme le travail d'équipe, l'empathie et la communication, afin que les participants soient préparés à réussir dans la vie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>1000+</h3>
+                <p>Jeunes Joueurs</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Séances Hebdomadaires</p>
+            </div>
+            <div class="stat-item">
+                <h3>25+</h3>
+                <p>Lieux</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Inclusif</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial">
+        <blockquote>"Quand je suis arrivé ici, je n'avais pas d'amis et nulle part où passer mon temps. Après ma première séance, j'ai trouvé plus d'amis et je passe maintenant mon temps libre sur quelque chose qui est spécial pour moi."</blockquote>
+        <cite>— Joueur, 11 ans</cite>
+    </section>
+
+    <!-- Programmes Section -->
+    <section class="programmes" id="programmes">
+        <h2>Nos Programmes</h2>
+        <div class="programme-grid">
+            <div class="programme-card">
+                <h3>⚽ Séances d'Entraînement</h3>
+                <p>Football organisé pour tous les âges et tous les niveaux. Le moyen le plus simple de monter sur le terrain et de développer vos compétences.</p>
+                <a href="#">En Savoir Plus →</a>
+            </div>
+            <div class="programme-card">
+                <h3>🏕️ Colonies de Vacances</h3>
+                <p>Jouez au football, restez actif et faites des amis pendant les vacances scolaires avec nos colonies de la semaine.</p>
+                <a href="#">En Savoir Plus →</a>
+            </div>
+            <div class="programme-card">
+                <h3>🧸 Oursons (3-6 ans)</h3>
+                <p>Football pour les jeunes années pour les joueurs qui débutent leur amour du sport.</p>
+                <a href="#">En Savoir Plus →</a>
+            </div>
+            <div class="programme-card">
+                <h3>🏆 Académie de Football</h3>
+                <p>Portez votre jeu au niveau supérieur avec notre Académie de Football. Essai requis.</p>
+                <a href="#">En Savoir Plus →</a>
+            </div>
+            <div class="programme-card">
+                <h3>👁️ Football pour Malvoyants</h3>
+                <p>Offrant aux jeunes malvoyants un espace pour jouer aux formats adaptés du jeu.</p>
+                <a href="#">En Savoir Plus →</a>
+            </div>
+            <div class="programme-card">
+                <h3>♿ Football Handisport</h3>
+                <p>Séances spécialisées conçues pour rassembler des joueurs ayant un large éventail de handicaps.</p>
+                <a href="#">En Savoir Plus →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Support Section -->
+    <section class="financial-support" id="support">
+        <h2>Aide Financière</h2>
+        <p>Nous nous engageons à rendre le football accessible à chaque jeune qui souhaite jouer. Cela inclut de s'assurer que le football de qualité est abordable pour tous.</p>
+        <p>Nous offrons une aide financière pour tous nos programmes, avec des réductions de 25 à 100% sur le prix pour les joueurs de ménages à faible revenu.</p>
+        <a href="#" class="cta-button">En Savoir Plus</a>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Jouer Chaque Semaine</h4>
+                <ul>
+                    <li><a href="#">Séances d'Entraînement</a></li>
+                    <li><a href="#">Oursons (3-6 ans)</a></li>
+                    <li><a href="#">Football pour Malvoyants</a></li>
+                    <li><a href="#">Football Handisport</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Rejoindre une Équipe</h4>
+                <ul>
+                    <li><a href="#">Académie de Football</a></li>
+                    <li><a href="#">Équipes Seniors</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>À Propos</h4>
+                <ul>
+                    <li><a href="#">Notre Histoire</a></li>
+                    <li><a href="#">Notre Impact</a></li>
+                    <li><a href="#">Notre Équipe</a></li>
+                    <li><a href="#">Protection</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li>📞 07724 608 600</li>
+                    <li>📧 info@sportingclubfortunat.com</li>
+                    <li>📍 France</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sporting Club Fortunat. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
